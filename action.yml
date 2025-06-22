@@ -5,7 +5,7 @@ name: "Setup dockerode"
 description: setup Docker and Nodejs environment, e.g. as a foundation of github.com/apocas/dockerode.
 inputs:
   action-provider:
-    description: "Github Action provider"
+    description: "Github Action provider. Options: [docker, davidkhala]"
     required: false
     default: "davidkhala"
   password:

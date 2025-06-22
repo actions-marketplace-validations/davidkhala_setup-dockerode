@@ -10,9 +10,11 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-13] # macos-latest it not ready
+        provider: [docker, davidkhala]
     runs-on: ${{matrix.os}}
     steps:
     - uses: actions/checkout@main
     - uses: ./
-    - run: docker ps
+      with:
+        action-provider: ${{matrix.provider}}
     - run: docker context ls
