@@ -15,3 +15,4 @@ Setup docker and nodejs
 ## Known issues
 
 - Rootless docker is used for `ubuntu-latest` exclusively
+- `macos-latest` is not supported. [Last support version is `macos-15`](https://github.com/douglascamata/setup-docker-macos-action/issues/35)
