@@ -8,14 +8,12 @@ inputs:
     description: "Github Action provider. Options: [docker, davidkhala]"
     required: false
     default: "davidkhala"
-  password:
-    description: "Password for Docker Hub"
-    required: false
-    default: "dckr_pat_ua37yOmE1Xqy2kUOIZEqul2P5Sc"
   username:
     description: "Username for Docker Hub"
     required: false
-    default: "davidkhala"
+  password:
+    description: "Personal Access Token for Docker Hub"
+    required: false
 runs:
   using: "composite"
   steps:
@@ -33,7 +31,8 @@ runs:
       uses: davidkhala/rootless-docker@main
     - if: runner.os == 'macOS'
       uses: douglascamata/setup-docker-macos-action@main
-    - uses: docker/login-action@master
+    - if: inputs.username != ''
+      uses: docker/login-action@master
       with:
         username: ${{ inputs.username }}
         password: ${{ inputs.password }}

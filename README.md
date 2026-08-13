@@ -7,9 +7,11 @@ Setup docker and nodejs
 ## Usage
 
 ```yaml
-  - name: Setup dockerode
-    uses: davidkhala/setup-dockerode@main
-            
+- uses: davidkhala/setup-dockerode@main
+  with:
+    action-provider: davidkhala # Options: [docker, davidkhala]. Default: davidkhala
+    username: ${{ secrets.DOCKERHUB_USERNAME }} # Docker Hub username. If omitted, login is skipped
+    password: ${{ secrets.DOCKERHUB_TOKEN }}    # Docker Hub Personal Access Token (PAT)
 ```
 
 ## Known issues
